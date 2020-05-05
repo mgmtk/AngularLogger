@@ -24,12 +24,12 @@
         </ion-datetime>
     </ion-item>
 </div>
-
+<!--[(ngModel)]="movementType" (ngModelChange)="updateConfig()" -->
 <div id="type-select-id" class="type-selector-container">
     <div class="selector-label"> Movement Type </div>
     <ion-item id="interaction-select-box" class="ion-item-select">
-        <ion-select placeholder="Select Type" [selectOptions]="typeControllerOptions" class="ion-select" [(ngModel)]="movementType" (ngModelChange)="updateConfig()">
-            <ion-select-option *ngFor="let item in movementTypes" [value]="item"> {{item.description}} </ion-select-option>
+        <ion-select placeholder="Select Type" class="ion-select" >
+             <ion-select-option *ngFor="let item of movementTypes" [value]="item"> {{item}} </ion-select-option> 
         </ion-select>
     </ion-item> 
 </div>

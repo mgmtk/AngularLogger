@@ -11,16 +11,27 @@ import { DatePipe } from '@angular/common';
 
 
 export class LoggerComponent implements OnInit{
-   startTimeSet: boolean
-   startTime: Date
+  startTimeSet: boolean;
+  startTime: Date;
+  dateTimePickerOptions;
 
-   constructor(private modalCtrl: ModalController) {
+  movementTypes = [
+    'One',
+    'Two',
+    'Three'
+  ];
+
+  constructor(private modalCtrl: ModalController) {
     this.startTimeSet= false;
 
-   }
+  }
 
   ngOnInit(): void {
     
+  }
+
+  public completeLogging(){
+    this.modalCtrl.dismiss();
   }
 
   public setStartTime(event){

@@ -15,7 +15,8 @@ import {LoggerComponent } from './logger/logger.component';
     FormsModule,
     RouterModule.forChild([
       {path: '', component: Tab3Page,},
-      {path: 'history', component:HistoryPageComponent}
+      {path: 'history', component:HistoryPageComponent},
+      {path: 'logger', component:LoggerComponent}
     ]),
     ChartsModule,
   ],
