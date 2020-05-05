@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <ion-button ion-button (click)="onDismiss()">
+        <span ion-text> Cancel </span>
+      </ion-button>
+      <ion-title class="logger-title">
+      Log-New
+    </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div class="datetime-form">
+    <ion-item no-lines class="log-datetime-container">
+        <div class="datetime-label">
+            <h6>
+                <span *ngIf="!startTimeSet" class="datetime-placeholder"> Select Date and Time </span>
+                <span *ngIf="startTimeSet" class="datetime"> {{startTime | date: 'EEE d MM y' | titlecase}}, {{startTime | date: 'shortTime'}} </span> 
+            </h6>  
+        </div>
+        <ion-datetime class="hidden" displayFormat="D MMM YYYY H:mm" [ngModel]="startTime"
+        (ngModelChange)="setStartTime($event)" [pickerOptions]="dateTimePickerOptions">
+        </ion-datetime>
+    </ion-item>
+</div>
+
+<div id="type-select-id" class="type-selector-container">
+    <div class="selector-label"> Movement Type </div>
+    <ion-item id="interaction-select-box" class="ion-item-select">
+        <ion-select placeholder="Select Type" [selectOptions]="typeControllerOptions" class="ion-select" [(ngModel)]="movementType" (ngModelChange)="updateConfig()">
+            <ion-select-option *ngFor="let item in movementTypes" [value]="item"> {{item.description}} </ion-select-option>
+        </ion-select>
+    </ion-item> 
+</div>
+
+<div>
+    <ion-button (click)="completeLogging()">Submit</ion-button>
+</div>
+
