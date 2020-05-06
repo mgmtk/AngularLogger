@@ -15,10 +15,17 @@ export class LoggerComponent implements OnInit{
   startTime: Date;
   dateTimePickerOptions;
 
-  movementTypes = [
-    'One',
-    'Two',
-    'Three'
+  selectTypes = [
+    'Soft',
+    'Hard',
+    'Solid'
+  ];
+
+  sizes = [
+    'Small',
+    'Medium',
+    'Large',
+    'Massive'
   ];
 
   constructor(private modalCtrl: ModalController) {

@@ -26,12 +26,21 @@
 </div>
 <!--[(ngModel)]="movementType" (ngModelChange)="updateConfig()" -->
 <div id="type-select-id" class="type-selector-container">
-    <div class="selector-label"> Movement Type </div>
+    <div class="selector-label"> Poop Type </div>
     <ion-item id="interaction-select-box" class="ion-item-select">
         <ion-select placeholder="Select Type" class="ion-select" >
-             <ion-select-option *ngFor="let item of movementTypes" [value]="item"> {{item}} </ion-select-option> 
+             <ion-select-option *ngFor="let item of selectTypes" [value]="item"> {{item}} </ion-select-option> 
         </ion-select>
     </ion-item> 
+</div>
+
+<div id="type-select-id" class="type-selector-container">
+  <div class="selector-label"> Poop Size </div>
+  <ion-item id="interaction-select-box" class="ion-item-select">
+      <ion-select placeholder="Select Type" class="ion-select" >
+           <ion-select-option *ngFor="let item of sizes" [value]="item"> {{item}} </ion-select-option> 
+      </ion-select>
+  </ion-item> 
 </div>
 
 <div>
