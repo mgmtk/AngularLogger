@@ -1,0 +1,35 @@
+
+<div style="width: 100%;">
+<canvas
+    baseChart
+    [chartType]="'line'"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartHover)="onChartHovered($event)"
+    (chartClick)="onChartClick($event)">
+</canvas>
+</div>
+
+<div>
+<ion-toolbar>
+    <ion-buttons>
+    <ion-button slot="start" name="chartButton" (click)="changeData(allTimeChartData, allLabels)">
+        All Time
+    </ion-button>
+    <ion-button slot="start" name="chartButton" (click)="changeData(yearChartData, yearLabels)">
+        Yearly
+    </ion-button>
+    <ion-button slot="end" name="chartButton" (click)="changeData(monthChartData, monthLabels)">
+        Monthly
+    </ion-button>
+    <ion-button slot="end" name="chartButton" (click)="changeData(weekChartData, weekLabels)">
+        Weekly
+    </ion-button>
+    <ion-button  slot="end" name="chartButton" (click)="changeData(dayChartData, dayLabels)">
+        Daily
+    </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+</div>
