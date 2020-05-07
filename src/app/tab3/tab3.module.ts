@@ -4,9 +4,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
-import { ChartsModule } from 'ng2-charts';
 import { HistoryPageComponent } from './history/history.component';
 import {LoggerComponent } from './logger/logger.component';
+import { ChartModule } from 'angular-highcharts';
+import { OutputGraphComponent } from './chart/output-graph.component';
+import { HighchartsChartComponent } from 'highcharts-angular';
+
 
 @NgModule({
   imports: [
@@ -18,9 +21,9 @@ import {LoggerComponent } from './logger/logger.component';
       {path: 'history', component:HistoryPageComponent},
       {path: 'logger', component:LoggerComponent}
     ]),
-    ChartsModule,
+    ChartModule
   ],
-  declarations: [Tab3Page, HistoryPageComponent, LoggerComponent],
+  declarations: [Tab3Page, HistoryPageComponent, LoggerComponent, OutputGraphComponent, HighchartsChartComponent],
   entryComponents:[HistoryPageComponent, LoggerComponent]
 })
 export class Tab3PageModule {}

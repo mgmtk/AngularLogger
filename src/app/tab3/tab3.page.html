@@ -7,43 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="width: 100%;">
-    <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        
-        (chartClick)="onChartClick($event)">
-    </canvas>
-  </div>
-
-  <div>
-    <ion-toolbar>
-      <ion-buttons>
-        <ion-button slot="start" name="chartButton" (click)="changeData(allTimeChartData, allLabels)">
-          All Time
-        </ion-button>
-        <ion-button slot="start" name="chartButton" (click)="changeData(yearChartData, yearLabels)">
-          Yearly
-        </ion-button>
-        <ion-button slot="end" name="chartButton" (click)="changeData(monthChartData, monthLabels)">
-          Monthly
-        </ion-button>
-        <ion-button slot="end" name="chartButton" (click)="changeData(weekChartData, weekLabels)">
-          Weekly
-        </ion-button>
-        <ion-button  slot="end" name="chartButton" (click)="changeData(dayChartData, dayLabels)">
-          Daily
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </div>
-
-  
-  <ion-item-divider></ion-item-divider>
+  <app-output-graph></app-output-graph>
 
   <div class="chart_buttons">
     <ion-button class="chart_button" (click)="openHistoryComponent()"> History </ion-button>

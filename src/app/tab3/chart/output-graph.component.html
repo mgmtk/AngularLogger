@@ -1,0 +1,30 @@
+<div>
+
+    <highcharts-chart
+        [Highcharts] = "highcharts" 
+        [options] = "chartOptions" 
+        style = "width: 100%; height: 400px; display: inline-flex;">
+    </highcharts-chart>
+
+    <div>
+        <ion-toolbar>
+          <ion-buttons>
+            <ion-button slot="start" name="chartButton" (click)="changeData(allTimeChartData, allLabels)">
+              All Time
+            </ion-button>
+            <ion-button slot="start" name="chartButton" (click)="changeData(yearChartData, yearLabels)">
+              Yearly
+            </ion-button>
+            <ion-button slot="end" name="chartButton" (click)="changeData(monthChartData, monthLabels)">
+              Monthly
+            </ion-button>
+            <ion-button slot="end" name="chartButton" (click)="changeData(WeekGraph)">
+              Weekly
+            </ion-button>
+            <ion-button  slot="end" name="chartButton" (click)="changeData(DayGraph)">
+              Daily
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div> 
+</div>
