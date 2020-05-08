@@ -40,8 +40,6 @@ export class OutputGraphComponent implements OnInit {
         categories: ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
     };
 
-    selectedData:any = this.DayGraph
-
     highcharts = Highcharts;
     chartOptions = {   
     chart: {
@@ -51,23 +49,28 @@ export class OutputGraphComponent implements OnInit {
         text: "Monthly Site Visitor"
     },
     xAxis:{
-        categories:this.selectedData.categories
+        categories:this.DayGraph.categories
     },
     yAxis: {          
         title:{
             text:"Visitors"
         } 
     },
-    series: this.selectedData.data
+    series: this.DayGraph.data
     };
 
   constructor() { }
 
+  // series = new Highcharts.Series(this.highcharts, this.chartOptions)
+
   changeData(changeData: any){
-    this.selectedData = changeData
+    // this.chartOptions.series.
+    // options.series = changeData.data
+    // this.highcharts.setOptions(options)
+    // this.chartOptions.series = changeData.data
   }
 
   ngOnInit(){
-      this.selectedData = this.DayGraph
+     // this.selectedData = this.DayGraph
   }
 }
