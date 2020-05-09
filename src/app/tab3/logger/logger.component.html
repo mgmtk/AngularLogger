@@ -1,15 +1,16 @@
 <ion-header>
   <ion-toolbar>
+   <ion-title class="logger-title">
+      Log-New
+    </ion-title>
     <ion-buttons start>
       <ion-button ion-button (click)="onDismiss()">
         <span ion-text> Cancel </span>
       </ion-button>
-      <ion-title class="logger-title">
-      Log-New
-    </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <div class="datetime-form">
     <ion-item no-lines class="log-datetime-container">
@@ -24,24 +25,46 @@
         </ion-datetime>
     </ion-item>
 </div>
+
+
+<ion-list id="selector-list-id" class="selector-list">
 <!--[(ngModel)]="movementType" (ngModelChange)="updateConfig()" -->
-<div id="type-select-id" class="type-selector-container">
-    <div class="selector-label"> Poop Type </div>
+<div id="type-select-id" class="selector-container">
+   <!-- <div class="selector-label"> Poop Type </div> -->
     <ion-item id="interaction-select-box" class="ion-item-select">
         <ion-select placeholder="Select Type" class="ion-select" >
              <ion-select-option *ngFor="let item of selectTypes" [value]="item"> {{item}} </ion-select-option> 
         </ion-select>
     </ion-item> 
 </div>
-
-<div id="type-select-id" class="type-selector-container">
-  <div class="selector-label"> Poop Size </div>
+<div id="size-select-id" class="selector-container">
+  <!-- <div class="selector-label"> Poop Size </div> -->
   <ion-item id="interaction-select-box" class="ion-item-select">
-      <ion-select placeholder="Select Type" class="ion-select" >
+      <ion-select placeholder="Select Size" class="ion-select" >
            <ion-select-option *ngFor="let item of sizes" [value]="item"> {{item}} </ion-select-option> 
       </ion-select>
   </ion-item> 
 </div>
+</ion-list>
+
+<ion-list id="slider-list-id" class="slider-list">
+  <div id="smell-slider-id" class="slider-container">
+    <div class="selector-label"> Smell </div> 
+    <ion-item>
+      <ion-range min="1" max="5" step="1" snaps="true" pin="true" color="success">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </div>
+
+  <div id="pain-slider-id" class="slider-container">
+   <div class="selector-label"> Pain </div>
+    <ion-item>
+      <ion-range min="1" max="10" step="1" snaps="true" pin="true" color="danger"></ion-range>
+    </ion-item>
+  </div>
+</ion-list>
 
 <div>
     <ion-button class="chart_button" (click)="completeLogging()">Submit</ion-button>
