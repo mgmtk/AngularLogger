@@ -33,14 +33,7 @@ import { Component, OnInit } from '@angular/core';
 
     chartOptions = {
         responsive: true,
-        scales:{
-        //yAxes: [{
-        // ticks: {
-            //  max : 10,
-            //  min : 0,
-        // }
-        //}]
-        },plugins: {
+        plugins: {
         datalabels: {
             display: true,
             align: 'top',
