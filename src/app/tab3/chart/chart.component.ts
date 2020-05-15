@@ -41,10 +41,8 @@ yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
     }
 
     ngOnInit(){
-        console.log(this.allTimeChartData)
         this.chartData = this.allTimeChartData
-        this.chartLabels = this.allTimeLabels
-        
+        this.chartLabels = this.allTimeLabels        
     }
 
     changeData(changeData: any, changeLabels: any){

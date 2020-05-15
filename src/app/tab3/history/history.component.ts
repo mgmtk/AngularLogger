@@ -8,6 +8,8 @@ import { NavParams, ModalController } from '@ionic/angular';
   styleUrls: ['history.component.scss']
 })
 export class HistoryPageComponent implements OnInit{
+  groceries = ['milk','egg','sauce']
+
   constructor(private modalCtrl: ModalController) {}
 
   ngOnInit(): void {
