@@ -11,13 +11,12 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
   <div id="history-list-id" class="history-list">
     <ion-list>
-      <div id="history-item-id" class="history-item">
+      <div id="history-slider-id" class="history-slider">
         <ion-item-sliding *ngFor="let grocery of groceries">
-          <ion-item>
+          <ion-item id="history-item-id" class="history-item">
             <div class="selector-label"> {{grocery}}</div>
           </ion-item>
           <ion-item-options>
