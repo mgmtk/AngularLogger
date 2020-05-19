@@ -10,3 +10,26 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <div id="history-list-id" class="history-list">
+    <ion-list>
+      <div id="history-slider-id" class="history-slider" *ngFor="let grocery of groceries">
+        <ion-item-sliding >
+          <ion-item id="history-item-id" class="history-item" button (click)="logGrocery(grocery)">
+            <ion-label>
+              <div class="history-info"> 
+                <label> {{grocery}} </label>
+              </div>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+            <button ion-button icon-only danger>
+                <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
