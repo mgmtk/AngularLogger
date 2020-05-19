@@ -20,5 +20,9 @@ export class HistoryPageComponent implements OnInit{
     this.modalCtrl.dismiss();
   }
 
+  public logGrocery(grocery){
+    console.log(grocery)
+  }
+
 
 }
