@@ -12,14 +12,14 @@
 </ion-header>
 
 <ion-content>
-  <div id="history-list-id" class="history-list">
+  <div id="history-list-id" class="history history-list">
     <ion-list>
-      <div id="history-slider-id" class="history-slider" *ngFor="let grocery of groceries">
+      <div id="history-slider-id" class="history history-slider" *ngFor="let item of items">
         <ion-item-sliding >
-          <ion-item id="history-item-id" class="history-item" button (click)="logGrocery(grocery)">
+          <ion-item id="history-item-id" class="history history-item" button (click)="recordItem(item)">
             <ion-label>
               <div class="history-info"> 
-                <label> {{grocery}} </label>
+                <label> {{item.date | uppercase}} </label>
               </div>
             </ion-label>
           </ion-item>

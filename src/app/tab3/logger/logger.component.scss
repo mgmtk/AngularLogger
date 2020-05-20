@@ -15,31 +15,34 @@
     margin-bottom: 15px;
  }
 
-.datetime-form {
-    position: relative;
-    // bottom: 75px;
-}
+ .selector{
+    .datetime-form {
+        position: relative;
+        // bottom: 75px;
+    }
+    
+    .selector-label{
+        text-align: center;
+    }
+    
+    .selector-list{
+        position: relative;
+        bottom:20px
+    }
+    
+    .selector-container{
+        padding:15;
+        margin-top:50px;
+    } 
+    
+    .slider-list{
+        position: relative;
+        bottom: 65px;
+    }
+    
+    .slider-container{
+        padding:15;
+        margin-top:50px;
+    } 
+ }
 
-.selector-label{
-    text-align: center;
-}
-
-.selector-list{
-    position: relative;
-    bottom:20px
-}
-
-.selector-container{
-    padding:15;
-    margin-top:50px;
-} 
-
-.slider-list{
-    position: relative;
-    bottom: 65px;
-}
-
-.slider-container{
-    padding:15;
-    margin-top:50px;
-} 
