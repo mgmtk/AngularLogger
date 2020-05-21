@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { chartOptions, allTimeChartData, allTimeLabels,  yearChartData, monthChartData, weekChartData, dayChartData,
 yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
+import { ItemResponse } from 'src/app/model/logItemResponse';
 
 @Component({
     selector: 'chart-component',
@@ -9,6 +10,7 @@ yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
   })
 
   export class ChartComponent implements OnInit{
+    @Input() items: ItemResponse[]
 
     chartData = [];
     chartLabels = [];
@@ -41,6 +43,7 @@ yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
     }
 
     ngOnInit(){
+        console.log(this.items)
         this.chartData = this.allTimeChartData
         this.chartLabels = this.allTimeLabels        
     }
