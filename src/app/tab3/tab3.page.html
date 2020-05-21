@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <chart-component></chart-component>
+  <chart-component [items]="items"></chart-component>
   <div class="chart_buttons">
     <ion-button class="chart_button" (click)="openHistoryComponent()"> History </ion-button>
     <ion-button class="chart_button" (click)="openLoggerComponent()"> Log New </ion-button>

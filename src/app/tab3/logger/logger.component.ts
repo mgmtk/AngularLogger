@@ -49,6 +49,4 @@ export class LoggerComponent implements OnInit{
   public onDismiss (){
     this.modalCtrl.dismiss();
   }
-
-
 }
