@@ -4,6 +4,7 @@ import {LoggerComponent } from './logger/logger.component';
 import { NavController, ModalController } from '@ionic/angular';
 import {LogItemService} from '../services/log-item.service';
 import {ItemResponse} from '../model/logItemResponse';
+import { AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'app-tab3',
@@ -12,7 +13,7 @@ import {ItemResponse} from '../model/logItemResponse';
 })
 export class Tab3Page implements OnInit{
 
-  items:ItemResponse[]
+  items: AngularFireList<ItemResponse>
 
   constructor(private navCtrl: NavController,
     private modalCtrl: ModalController, private itemService:LogItemService) {}

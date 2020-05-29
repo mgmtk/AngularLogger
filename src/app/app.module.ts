@@ -13,6 +13,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { ChartsModule } from 'ng2-charts';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
@@ -33,6 +34,7 @@ import { environment } from '../environments/environment';
     StatusBar,
     SplashScreen,
     Camera,
+    AngularFireAuth,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
