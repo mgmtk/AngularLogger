@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { chartOptions, allTimeChartData, allTimeLabels,  yearChartData, monthChartData, weekChartData, dayChartData,
 yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
-import { ItemResponse } from 'src/app/model/logItemResponse';
+import { ItemResponse } from 'src/app/model/logItemResponse.model';
 
 @Component({
     selector: 'chart-component',

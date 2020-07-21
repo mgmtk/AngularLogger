@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
-import {ItemResponse} from '../../model/logItemResponse';
+import {ItemResponse} from '../../model/logItemResponse.model';
 
 
 @Component({
