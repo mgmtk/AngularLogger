@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { chartOptions, allTimeLabels, yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
 import { ItemResponse } from 'src/app/model/logItemResponse.model';
-import {ChartType} from '../../model/chartEnum.model';
-import {ChartData } from '../../model/chartData.model'
+import {ChartType} from './chartModel/chartEnum.model';
+import {ChartData } from './chartModel/chartData.model'
 import { listChanges } from 'angularfire2/database';
 
 
@@ -66,16 +66,7 @@ import { listChanges } from 'angularfire2/database';
 
         switch(chartType){
             case ChartType.ALL: {
-                label = 'All Time Poops'
-                end = new Date().getFullYear()
-               
-                data = this.items
-                .map((item) => item.date.getFullYear())
-                .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-
-                let keys = Object.keys(data)
-                start = Number(keys[0])
-                break;
+                
             }
             case ChartType.YEAR: {
                 label = 'Monthly Poops'
@@ -169,6 +160,8 @@ import { listChanges } from 'angularfire2/database';
         }
         return {chartData, chartLabels}
     }
+
+    
 
     onChartClick(event){
         console.log(event);
