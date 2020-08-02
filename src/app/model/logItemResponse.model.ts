@@ -14,7 +14,7 @@ export class ItemResponse implements IItemResponse{
     public pain: number
 
     public constructor(item: IItemResponse){
-        this.date = item.date;
+        this.date = new Date(item.date);
         this.pain = item.pain;
         this.size = item.size;
         this.smell = item.smell;
