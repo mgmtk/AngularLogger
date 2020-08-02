@@ -3,7 +3,7 @@ import {HistoryPageComponent} from './history/history.component';
 import {LoggerComponent } from './logger/logger.component';
 import { NavController, ModalController } from '@ionic/angular';
 import {LogItemService} from '../services/log-item.service';
-import {ItemResponse} from '../model/logItemResponse';
+import {ItemResponse} from '../model/logItemResponse.model';
 
 @Component({
   selector: 'app-tab3',

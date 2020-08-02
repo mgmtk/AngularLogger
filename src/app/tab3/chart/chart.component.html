@@ -15,19 +15,19 @@
 <span class="chart_choices">
     <ion-toolbar>
         <ion-buttons>
-        <ion-button slot="start" name="chartButton" (click)="changeData(allTimeChartData, allTimeLabels)">
+        <ion-button slot="start" name="chartButton" (click)="changeData(chartType.ALL)">
             All Time
         </ion-button>
-        <ion-button slot="start" name="chartButton" (click)="changeData(yearChartData, yearLabels)">
+        <ion-button slot="start" name="chartButton" (click)="changeData(chartType.YEAR)">
             Yearly
         </ion-button>
-        <ion-button slot="end" name="chartButton" (click)="changeData(monthChartData, monthLabels)">
+        <ion-button slot="end" name="chartButton" (click)="changeData(chartType.MONTH)">
             Monthly
         </ion-button>
-        <ion-button slot="end" name="chartButton" (click)="changeData(weekChartData, weekLabels)">
+        <ion-button slot="end" name="chartButton" (click)="changeData(chartType.WEEK)">
             Weekly
         </ion-button>
-        <ion-button  slot="end" name="chartButton" (click)="changeData(dayChartData, dayLabels)">
+        <ion-button  slot="end" name="chartButton" (click)="changeData(chartType.DAY)">
             Daily
         </ion-button>
         </ion-buttons>
