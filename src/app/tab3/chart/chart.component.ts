@@ -27,17 +27,16 @@ import { listChanges } from 'angularfire2/database';
     dayLabels: any
    
     constructor() {
-
         Object.assign(this, { chartOptions });
         Object.assign(this, { allTimeLabels});
         Object.assign(this, { yearLabels});
         Object.assign(this, { monthLabels});
         Object.assign(this, { weekLabels});
         Object.assign(this, { dayLabels });
-
     }
 
     ngOnInit(){
+        console.log()
         let retrievedData:ChartData = this.getAllData(ChartType.ALL)
         this.chartData = [{
             data: retrievedData.data,
@@ -68,6 +67,7 @@ import { listChanges } from 'angularfire2/database';
         switch(chartType){
             case ChartType.ALL: {
                 label = 'All Time Poops'
+                end = new Date().getFullYear()
                
                 data = this.items
                 .map((item) => item.date.getFullYear())
@@ -75,30 +75,32 @@ import { listChanges } from 'angularfire2/database';
 
                 let keys = Object.keys(data)
                 start = Number(keys[0])
-                end = new Date().getFullYear()
                 break;
             }
             case ChartType.YEAR: {
                 label = 'Monthly Poops'
                 let year = new Date().getFullYear()
+                end = new Date().getMonth()
 
                 data = this.items
                 .filter((item) => item.date.getFullYear() == year)
                 .map((item) => item.date.getMonth())
                 .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-                end = new Date().getMonth()
                 break;
+
             }
             case ChartType.MONTH: {
                 label = 'Monthly Poops'
                 let year = new Date().getFullYear()
                 let month = new Date().getMonth()
+                start = 1
 
                 data = this.items
                 .filter((item) => item.date.getFullYear() == year && item.date.getMonth() == month)
                 .map((item) => item.date.getDate())
                 .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
                 break;
+
             }
             case ChartType.WEEK: {
                 label = 'Weekly Poops'
@@ -106,7 +108,6 @@ import { listChanges } from 'angularfire2/database';
                 let month = new Date().getMonth()
                 let day = new Date().getDay()
                 let date = new Date().getDate()
-
                 
                 data = this.items
                 .filter((item) => item.date.getFullYear() == year && item.date.getMonth() == month
@@ -114,6 +115,7 @@ import { listChanges } from 'angularfire2/database';
                 .map((item) => item.date.getDay())
                 .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
                 break;
+
             }
             case ChartType.DAY: {
                 label = 'Daily Poops'
