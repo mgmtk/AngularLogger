@@ -7,6 +7,7 @@ import { Tab3Page } from './tab3.page';
 import { ChartsModule } from 'ng2-charts';
 import { HistoryPageComponent } from './history/history.component';
 import {LoggerComponent } from './logger/logger.component';
+import {ChartComponent} from './chart/chart.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import {LoggerComponent } from './logger/logger.component';
     ]),
     ChartsModule,
   ],
-  declarations: [Tab3Page, HistoryPageComponent, LoggerComponent],
-  entryComponents:[HistoryPageComponent, LoggerComponent]
+  declarations: [Tab3Page, HistoryPageComponent, LoggerComponent, ChartComponent],
+  entryComponents:[HistoryPageComponent, LoggerComponent, ChartComponent]
 })
 export class Tab3PageModule {}
