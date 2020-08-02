@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
+import {ItemResponse} from '../../model/logItemResponse.model';
 
 
 @Component({
@@ -8,15 +9,20 @@ import { NavParams, ModalController } from '@ionic/angular';
   styleUrls: ['history.component.scss']
 })
 export class HistoryPageComponent implements OnInit{
-  constructor(private modalCtrl: ModalController) {}
+  @Input() items: ItemResponse[]
+
+  constructor( private modalCtrl: ModalController) {}
 
   ngOnInit(): void {
-    
+
   }
 
   public onDismiss (){
     this.modalCtrl.dismiss();
   }
 
+  public recordItem(item){
+    console.log(item)
+  }
 
 }

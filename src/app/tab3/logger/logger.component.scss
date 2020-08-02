@@ -1,12 +1,48 @@
 .logger-title {
     text-align: center;
-    padding-left: 0px;
-    margin-top: 0px;
-    padding-right: 60px;
+    margin-top: 10px;
 
 }
 
-.datetime-form {
-   // margin-bottom: 600px;
+.chart_button {
+    display: block;
+    background: none;
+    font-size: 15px;
+    color:white;
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 15px;
+ }
 
-}
+ .selector{
+    .datetime-form {
+        position: relative;
+        // bottom: 75px;
+    }
+    
+    .selector-label{
+        text-align: center;
+    }
+    
+    .selector-list{
+        position: relative;
+        bottom:20px
+    }
+    
+    .selector-container{
+        padding:15;
+        margin-top:50px;
+    } 
+    
+    .slider-list{
+        position: relative;
+        bottom: 65px;
+    }
+    
+    .slider-container{
+        padding:15;
+        margin-top:50px;
+    } 
+ }
+

@@ -12,6 +12,10 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { ChartsModule } from 'ng2-charts';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule, 
     IonicModule.forRoot(),
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'AngularLoger'),
+    AngularFireDatabaseModule
   ],
   providers: [
     StatusBar,
