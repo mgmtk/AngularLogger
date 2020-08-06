@@ -1,9 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { chartOptions, allTimeLabels, yearLabels, monthLabels, weekLabels, dayLabels } from '../../data/chartdata';
+import { chartOptions} from '../../data/chartdata';
 import { ItemResponse } from 'src/app/model/logItemResponse.model';
-import {ChartType} from './chartModel/chartEnum.model';
-import {ChartData } from './chartModel/chartData.model'
-import { listChanges } from 'angularfire2/database';
+import {ChartType} from './chartOptions/chartEnum.model';
+import { ChartData } from './chartOptions/chartData';
+import { AllTimeChartData } from './chartOptions/allTimeChartData';
+import { YearlyChartData } from './chartOptions/yearChartData';
+import { MonthlyChartData } from './chartOptions/monthChartData';
+import { WeeklyChartData } from './chartOptions/weekChartData';
+import { DailyChartData } from './chartOptions/dayChartData';
 
 
 @Component({
@@ -20,148 +24,65 @@ import { listChanges } from 'angularfire2/database';
     chartType = ChartType
     
     chartOptions: any
-    allTimeLabels: any
-    yearLabels: any
-    monthLabels: any
-    weekLabels: any
-    dayLabels: any
    
     constructor() {
         Object.assign(this, { chartOptions });
-        Object.assign(this, { allTimeLabels});
-        Object.assign(this, { yearLabels});
-        Object.assign(this, { monthLabels});
-        Object.assign(this, { weekLabels});
-        Object.assign(this, { dayLabels });
     }
 
     ngOnInit(){
-        console.log()
         let retrievedData:ChartData = this.getAllData(ChartType.ALL)
-        this.chartData = [{
-            data: retrievedData.data,
-            label: retrievedData.label
-        }]
 
-        this.chartLabels = retrievedData.dataLabels  
+        this.chartData = [{
+            data: retrievedData.getChartData(),
+            label: retrievedData.getLabel()
+        }]
+        this.chartLabels = retrievedData.getLabels()
     }
 
     changeData(chartType: ChartType){
         let retrievedData:ChartData = this.getAllData(chartType)
-        this.chartData = [{
-            data: retrievedData.data,
-            label: retrievedData.label
-        }]
 
-        this.chartLabels = retrievedData.dataLabels 
+        this.chartData = [{
+            data: retrievedData.getChartData(),
+            label: retrievedData.getLabel()
+        }]
+        this.chartLabels = retrievedData.getLabels()
     }
 
     private getAllData(chartType:ChartType): ChartData{
-       
-        let label: string = ''
-        let data: any = null
-        let start: number = 0
-        let end: number = null
-        let ret: any
+
+        let chart: ChartData
 
         switch(chartType){
             case ChartType.ALL: {
-                
+                chart = new AllTimeChartData(this.items)
+                break
             }
             case ChartType.YEAR: {
-                label = 'Monthly Poops'
-                let year = new Date().getFullYear()
-                end = new Date().getMonth()
-
-                data = this.items
-                .filter((item) => item.date.getFullYear() == year)
-                .map((item) => item.date.getMonth())
-                .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-                break;
-
+                chart = new YearlyChartData(this.items)
+                break
             }
             case ChartType.MONTH: {
-                label = 'Monthly Poops'
-                let year = new Date().getFullYear()
-                let month = new Date().getMonth()
-                start = 1
-
-                data = this.items
-                .filter((item) => item.date.getFullYear() == year && item.date.getMonth() == month)
-                .map((item) => item.date.getDate())
-                .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-                break;
-
+                chart = new MonthlyChartData(this.items)
+                break
             }
             case ChartType.WEEK: {
-                label = 'Weekly Poops'
-                let year = new Date().getFullYear()
-                let month = new Date().getMonth()
-                let day = new Date().getDay()
-                let date = new Date().getDate()
-                
-                data = this.items
-                .filter((item) => item.date.getFullYear() == year && item.date.getMonth() == month
-                && item.date.getDate() >= (date - day))
-                .map((item) => item.date.getDay())
-                .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-                break;
-
+                chart = new WeeklyChartData(this.items)
+                break
             }
             case ChartType.DAY: {
-                label = 'Daily Poops'
-                let year = new Date().getFullYear()
-                let month = new Date().getMonth()
-                let date = new Date().getDate()
-
-                data = this.items
-                .filter((item) => item.date.getFullYear() == year && item.date.getMonth() == month
-                && item.date.getDate() == date)
-                .map((item) => item.date.getHours())
-                .reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null))
-                console.log(data)
-                break;
-
+                chart = new DailyChartData(this.items)
+                break
             }
-
             default: {
                 return null;
             }
-
         }
-        
 
-        if(end == null){
-            let keys = Object.keys(data)
-            ret = this.createTimeSeries(data, start, Number(keys[keys.length-1]))
-        }
-        else{
-            ret = this.createTimeSeries(data, start, end)
-        }
-        
-        console.log(ret)
-
-        return new ChartData(ret.chartData, label, ret.chartLabels)
-        
+        chart.createChart()
+        return chart
         
     }
-
-    private createTimeSeries(data, min, max){
-        let chartData:Array<number> = []
-        let chartLabels:Array<string> = []
-
-        for(let i = min; i <= max; i++){
-            chartLabels.push(i.toString());
-            if(!(i in data)){
-                chartData.push(0)
-                continue
-            }
-            chartData.push(data[i])
-        }
-        return {chartData, chartLabels}
-    }
-
-    
 
     onChartClick(event){
         console.log(event);
