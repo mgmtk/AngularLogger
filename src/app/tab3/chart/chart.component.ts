@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { chartOptions} from '../../data/chartdata';
+import { chartOptions} from '../../options/chartOptions';
 import { ItemResponse } from 'src/app/model/logItemResponse.model';
-import {ChartType} from './chartOptions/chartEnum.model';
-import { ChartData } from './chartOptions/chartData';
-import { AllTimeChartData } from './chartOptions/allTimeChartData';
-import { YearlyChartData } from './chartOptions/yearChartData';
-import { MonthlyChartData } from './chartOptions/monthChartData';
-import { WeeklyChartData } from './chartOptions/weekChartData';
-import { DailyChartData } from './chartOptions/dayChartData';
+import {ChartType} from './chartModel/chartEnum.model';
+import { ChartData } from './chartModel/chartData';
+import { AllTimeChartData } from './chartModel/allTimeChartData';
+import { YearlyChartData } from './chartModel/yearChartData';
+import { MonthlyChartData } from './chartModel/monthChartData';
+import { WeeklyChartData } from './chartModel/weekChartData';
+import { DailyChartData } from './chartModel/dayChartData';
 
 
 @Component({
