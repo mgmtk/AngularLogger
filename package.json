@@ -28,7 +28,7 @@
     "@swimlane/ngx-charts": "^14.0.0",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-camera": "^4.1.0",
     "core-js": "^2.6.11",
